@@ -41,6 +41,16 @@ def excluir_produto():
     conn.close()
     print("✅ Produto removido!")
 
+    produtos = []
+
+def cadastrar_produto(nome, valor):
+    produtos.append({"nome": nome, "valor": valor})
+
+def excluir_produto(index):
+    if 0 <= index < len(produtos):
+        produtos.pop(index)
+
+
 
 
 
