@@ -3,7 +3,6 @@ from flask import Flask, request, redirect, render_template_string
 
 app = Flask(__name__)
 
-# Criar tabela se não existir
 def init_db():
     conn = sqlite3.connect("produtos.db")
     cursor = conn.cursor()
@@ -18,7 +17,6 @@ def init_db():
     conn.commit()
     conn.close()
 
-# Funções para manipular o banco
 def listar_produtos():
     conn = sqlite3.connect("produtos.db")
     cursor = conn.cursor()
@@ -41,7 +39,6 @@ def excluir_produto(nome):
     conn.commit()
     conn.close()
 
-# HTML do site
 HTML_TEMPLATE = """
 <!DOCTYPE html>
 <html>
@@ -155,5 +152,5 @@ def excluir():
     return redirect("/")
 
 if __name__ == "__main__":
-    init_db()  # cria o banco/tabela se não existir
+    init_db() 
     app.run(debug=True)
